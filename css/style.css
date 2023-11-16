@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.title-game {
+    text-align: center;
+    margin-top: 3rem;
+    text-transform: uppercase;
+}
+
+.minefield-game-container {
+    width: 560px;
+    height: 560px;
+    margin: auto;
+    margin-top: 3rem;
+    border: 2px solid black;
+}
+
+.game-board {
+    height:60px;
+    border-bottom: 2px solid black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    color: red;
+}
+
+.score, .time {
+    font-size: 30px;
+}
+
+.start-btn {
+    font-size: 30px;
+    width: 60px;
+    background-color: #F1C40F;
+}
