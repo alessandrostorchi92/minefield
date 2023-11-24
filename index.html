@@ -9,8 +9,9 @@
 
     <!-- Font Awesome library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- Custom Css -->
     <link rel="stylesheet" href="css/style.css">
 
@@ -20,25 +21,141 @@
 
 <body>
     <h1 class="title-game">Minefield Game</h1>
-    <div class="minefield-game-container">
 
-        <!-- Game board  -->
-        <div class="game-board">
+    <div class="minefield-container">
 
+        <!-- Game board -->
+        <div class="game-panel">
+
+            <!-- Score  -->
             <div class="score">
-                <span>SCORE: 00000</span>
+                <span>SCORE: 000</span>
             </div>
-            
+
+            <!-- Play Button  -->
             <button class="start-btn"><i class="fa-solid fa-reply"></i></button>
-            
+
+            <!-- Time  -->
             <div class="time">
                 <span>TIME: 300</span>
             </div>
-            
+
+        </div>
+
+        <!-- Game grid -->
+        <div class="game-grid">
+
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell "></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell "></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell "></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell "></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell "></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+            <div class="cell cell-dark"></div>
+            <div class="cell"></div>
+
+            <!-- End game screen  -->
+            <div class="end-game-screen hidden">
+                <h2 class="end-game-text">Game<br>Over</h2>
+                <button class="play-again-btn">Play again</button>
+            </div>
+
         </div>
 
     </div>
-    
+
 </body>
 
 </html>
