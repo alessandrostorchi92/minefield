@@ -58,10 +58,6 @@ body {
     cursor: pointer;
 }
 
-.cell-dark {
-    background-color: blue;
-}
-
 .end-game-screen {
     position: absolute;
     background-color: #FE4D4E;
