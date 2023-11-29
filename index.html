@@ -20,38 +20,26 @@
 </head>
 
 <body>
+    <!-- Game Title -->
     <h1 class="title-game">Minefield Game</h1>
 
+    <!-- Select Difficulty Game  -->
+    <div class="select-container">
+        <select name="playing-difficulty" id="">
+            <option hidden>Select the difficulty of the game</option>
+            <option value="36">Hard</option>
+            <option value="64">Medium</option>
+            <option value="100">Easy</option>
+        </select>
+    </div>
+
+    <!-- Play Game Button -->
+    <div class="play-btn-container">
+        <button class="start-game-btn">PLAY GAME</button>
+    </div>
+
+    <!-- Game grid -->
     <div class="minefield-container">
-
-        <!-- Game board -->
-        <div class="game-panel">
-
-            <!-- Score  -->
-            <div class="score">
-                <span>SCORE: 000</span>
-            </div>
-
-            <!-- Play Button  -->
-            <button class="start-btn"><i class="fa-solid fa-reply"></i></button>
-
-            <!-- Time  -->
-            <div class="time">
-                <span>TIME: 300</span>
-            </div>
-
-        </div>
-
-        <!-- Game grid -->
-        <div class="game-grid">
-
-            <!-- End game screen  -->
-            <div class="end-game-screen hidden">
-                <h2 class="end-game-text">Game<br>Over</h2>
-                <button class="play-again-btn">Play again</button>
-            </div>
-
-        </div>
 
     </div>
 
