@@ -57,7 +57,13 @@ select {
     border: 1px solid black;
 }
 
-.bg-cell {
-    background-color: #F1C40F;
+.bg-cell-clicked {
+    background-color: #30b82e;
+}
+
+.bg-cell-bomb {
+    background-color: #E50914;
+    background-image: url('img/bomb.png');
+    background-size: contain;
 }
 

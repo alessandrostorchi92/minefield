@@ -30,7 +30,9 @@ function onBtnClick() {
     //? console.log(gridList); OK!
 
     printGrid(gameGridContainer, gridList);
-
+    
+    const bombs = createRandomBombs(gameDifficulty);
+    //? console.log(bombs); OK!
 
 }
 
@@ -51,14 +53,16 @@ function createGrid(cellsNumber) {
         cell.classList.add('cell');
         cell.innerText = i.toString();
         cell.style.flexBasis = `calc(100% / ${cellsPerRow})`;
-        cell.addEventListener("click", function() {
-            cell.classList.toggle('bg-cell')
+        cell.addEventListener("click", function () {
+            this.classList.toggle('bg-cell-clicked')
         });
         grid.push(cell);
     }
 
     return grid;
 }
+
+// TODO: I print the minefield grid
 
 /**
  * This function prints the grid game
@@ -77,38 +81,29 @@ function printGrid(container, cellsList) {
 }
 
 
+// TODO: I create 20 random bombs
+
+/**
+ * This function which creates the random bombs
+ * @param {number}  cellsBomb Bombs to put into the cells 
+ * @returns {number[]}
+ */
+
+function createRandomBombs(cellsBomb) {
+    const bombsList = [];
+    const totalBombs = 20;
+
+    while (bombsList.length < totalBombs) {
+        const bombCells = Math.floor(Math.random() * cellsBomb) + 1;
+        // ! To avoid repeating twice the same cell number of a bomb
+        if (!bombsList.includes(bombCells)) {
+            bombsList.push(bombCells);
+        }
+    }
+    return bombsList;
+}
 
 
-
-// // TODO: I declare the relevant information regarding the logic game
-// const totalCells = 100;
-// const totalBombs = 20;
-// const totalScore = totalCells - totalBombs;
-// let score = 0;
-// const bombsList = [];
-
-// // TODO: I create 20 random bombs
-
-// /**
-//  * This function creates the random bombs
-//  * @param {number} totalBombs  Number of bombs to be placed in the grid squares
-//  * @returns {number[]}
-//  */
-
-// function createRandomBombs(totalBombs) {
-//     while (bombsList.length < totalBombs) {
-//         const bombCells = Math.floor(Math.random() * totalCells) + 1;
-//         // ! To avoid repeating twice the same cell number of a bomb
-//         if (!bombsList.includes(bombCells)) {
-//             bombsList.push(bombCells);
-//         }  
-//     }
-//     return bombsList;
-// }
-
-// //* I invoke the function to generate the boxes in which the bombs will be placed
-// createRandomBombs(totalBombs);
-// //?console.log(`Le caselle delle bombe sono: ${bombsList}`);
 
 
 
