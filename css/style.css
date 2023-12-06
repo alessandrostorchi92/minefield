@@ -46,7 +46,7 @@ select {
     width: 480px;
     height: 480px;
     margin: auto;
-    border: 1px solid black;
+    border: 2px solid black;
 }
 
 .cell {
@@ -54,10 +54,17 @@ select {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 
-.bg-cell-clicked {
+.cell-dark {
+    background-color: #262626;
+}
+
+.cell-yellow {
+    background-color: #ffdb58;
+}
+
+.bg-cell-empty {
     background-color: #30b82e;
 }
 

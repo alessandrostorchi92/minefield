@@ -1,42 +1,50 @@
 "use strict"
 
+/* -------------------------------------------------------
+
+PREPARATION SESSION: Collection of the Html elements I need
+
+-------------------------------------------------------- */ 
+
 /**
  * @type {HTMLSelectElement}
  */
 // @ts-ignore
-const gameDifficultyOptionSelect = document.querySelector("[name='playing-difficulty']");
+const gameLevelSelect = document.querySelector("[name='playing-level-difficulty']");
 
 /**
  * @type {HTMLButtonElement}
  */
 // @ts-ignore
-const startBtn = document.querySelector(".start-game-btn");
+const playBtn = document.querySelector(".start-game-btn");
 
 /**
  * @type {HTMLElement}
  */
 // @ts-ignore
-const gameGridContainer = document.querySelector('.minefield-container');
+const gridContainer = document.querySelector('.minefield-container');
 
+/* ----------
 
+GAME SESSION: Implementaion of the minefield game
 
-startBtn.addEventListener("click", onBtnClick);
+----------- */ 
+
+playBtn .addEventListener("click", onBtnClick);
 
 function onBtnClick() {
-    const gameDifficulty = parseInt(gameDifficultyOptionSelect.value)
-    //? console.log("Chosen Option:", gameDifficulty); OK!
-
-    const gridList = createGrid(gameDifficulty);
-    //? console.log(gridList); OK!
-
-    printGrid(gameGridContainer, gridList);
+    //* Selection of the select options
+    const playingLevel = parseInt(gameLevelSelect.value)
     
-    const bombs = createRandomBombs(gameDifficulty);
-    //? console.log(bombs); OK!
-
+    //* Invocation of the function which generates a virtual minefield grid
+    const gridBoxes = createGrid(playingLevel);
+    
+    //* Invocation of the function which prints the virtual minefield grid 
+    printGrid(gridContainer, gridBoxes);
+    
 }
 
-// TODO: I create the cells of the  virtual grid
+// TODO: Generation of the cells of the  virtual grid
 
 /**
  * This function creates the cells of the virtual grid
@@ -46,23 +54,34 @@ function onBtnClick() {
 
 function createGrid(cellsNumber) {
     const grid = [];
+    let isCellEven = false;
+    let isRowEven = false;
 
     for (let i = 1; i <= cellsNumber; i++) {
         const cell = document.createElement('div');
         const cellsPerRow = Math.sqrt(cellsNumber);
         cell.classList.add('cell');
-        cell.innerText = i.toString();
+        cell.dataset.cellValue = i.toString();
         cell.style.flexBasis = `calc(100% / ${cellsPerRow})`;
-        cell.addEventListener("click", function () {
-            this.classList.toggle('bg-cell-clicked')
-        });
+
+        isCellEven = i % 2 === 0;
+        if(isRowEven && isCellEven) {
+            cell.classList.add('cell-yellow')
+        } else if (!isRowEven && !isCellEven) {
+            cell.classList.add('cell-yellow')
+        }
+        if(i % cellsPerRow === 0) {
+            isRowEven = !isRowEven
+        }
+        
+    
         grid.push(cell);
     }
 
     return grid;
 }
 
-// TODO: I print the minefield grid
+// TODO: Printing of the minefield grid
 
 /**
  * This function prints the grid game
@@ -80,13 +99,12 @@ function printGrid(container, cellsList) {
 
 }
 
-
-// TODO: I create 20 random bombs
+// TODO: Creation of 20 random bombs
 
 /**
- * This function which creates the random bombs
- * @param {number}  cellsBomb Bombs to put into the cells 
- * @returns {number[]}
+ * This function creates the random bombs
+ * @param {number} cellsBomb Bombs to put into the cells 
+ * @returns {number[]} 
  */
 
 function createRandomBombs(cellsBomb) {
@@ -102,6 +120,16 @@ function createRandomBombs(cellsBomb) {
     }
     return bombsList;
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
