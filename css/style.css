@@ -8,6 +8,7 @@
 body {
     height: 100vh;
     padding: 1rem;
+    background-color: #EFD869;
 }
 
 .title-game {
@@ -32,6 +33,7 @@ select {
 }
 
 .start-game-btn {
+    cursor: pointer;
     font-size: 1.5rem;
     width: 200px;
     font-weight: bold;
@@ -40,6 +42,7 @@ select {
 }
 
 .minefield-container {
+    position: relative;
     aspect-ratio: 1/1;
     display: flex;
     flex-wrap: wrap;
@@ -54,32 +57,29 @@ select {
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 2px solid black;
+    cursor: pointer;
 }
 
 .cell:hover {
     background-color: #876B08;
 }
 
-.cell-dark {
-    background-color: #262626;
-}
-
-.cell-yellow {
-    background-color: #ffdb58;
-}
-
-.bg-cell-empty {
-    background-color: #30b82e;
+.coloured-cell {
+    background-color: #F7FFF7;
 }
 
 .bg-cell-bomb {
-    background-color: #E50914;
-    background-image: url('img/bomb.png');
-    background-size: contain;
+    background-color: #F1C40F;
+}
+
+.bg-cell-empty {
+    background-color: #292F36;
 }
 
 i {
     font-size: 2rem;
     color: black;
 }
+
 

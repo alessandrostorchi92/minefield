@@ -24,6 +24,12 @@ const playBtn = document.querySelector(".start-game-btn");
 // @ts-ignore
 const gridContainer = document.querySelector('.minefield-container');
 
+/**
+ * @type {HTMLDivElement}
+ */
+// @ts-ignore
+const endGameScreen = document.querySelector('.end-game-screen');
+
 /* ----------
 
 GAME SESSION: Implementaion of the minefield game
@@ -45,10 +51,10 @@ function onBtnClick() {
 }
 
 
-// TODO: Generation of the cells of the  virtual grid
+// TODO: Generation of the cells of the virtual grid
 
 /**
- * This function creates the cells of the virtual grid
+ * This function creates the cells of the virtual grid and assigns the bombs to the virtual cell
  * @param {number} cellsNumber Number of the cells to create in the game grid
  * @returns {HTMLDivElement[]}
  */
@@ -66,21 +72,31 @@ function createGrid(cellsNumber) {
         cell.classList.add('cell');
         cell.style.flexBasis = `calc(100% / ${cellsPerRow})`;
         cell.dataset.cellValue = i.toString();
+        
         let isBomb = arrayBombs.includes(i);
 
         cell.addEventListener("click", function() {
+            console.log('cell clicked', i)
             if (isBomb === true){
                 this.innerHTML = "<i class='fa-solid fa-bomb'></i>"
+                cell.classList.add('bg-cell-bomb');
+                setTimeout(function() {
+                    alert("You stepped on a bomb! Game Over.");
+                    location.reload();
+                }, 1000);
+                
+                
+            } else {
+                cell.classList.add('bg-cell-empty');
             }
-
 
         });
 
         isCellEven = i % 2 === 0;
         if (isRowEven && isCellEven) {
-            cell.classList.add('cell-yellow')
+            cell.classList.add('coloured-cell')
         } else if (!isRowEven && !isCellEven) {
-            cell.classList.add('cell-yellow')
+            cell.classList.add('coloured-cell')
         }
         if (i % cellsPerRow === 0) {
             isRowEven = !isRowEven
@@ -132,6 +148,9 @@ function createRandomBombs(cellsBomb) {
     return bombsList;
 
 }
+
+
+
 
 
 
