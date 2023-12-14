@@ -56,6 +56,10 @@ select {
     align-items: center;
 }
 
+.cell:hover {
+    background-color: #876B08;
+}
+
 .cell-dark {
     background-color: #262626;
 }
@@ -72,5 +76,10 @@ select {
     background-color: #E50914;
     background-image: url('img/bomb.png');
     background-size: contain;
+}
+
+i {
+    font-size: 2rem;
+    color: black;
 }
 
