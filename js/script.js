@@ -101,7 +101,8 @@ function createGrid(cellsNumber) {
             if (isBomb === true){
                 this.innerHTML = "<i class='fa-solid fa-bomb'></i>"
                 cell.classList.add('bg-cell-bomb');
-                lostGame()
+                showAllBombs();
+                lostGame();
         
             } else {
                 cell.classList.add('bg-cell-empty');
@@ -157,7 +158,6 @@ function printGrid(container, cellsList) {
  */
 
 function createRandomBombs(cellsBomb) {
-    const bombsList = [];
 
     while (bombsList.length < totalBombs) {
         const bombCells = Math.floor(Math.random() * cellsBomb) + 1;
@@ -202,6 +202,21 @@ function wonGame() {
         alert("You won. Congratulations");
         location.reload();
     }, 1000);
+}
+
+// TODO: Reveletion of the bombs location
+
+/**
+ * This function shows where are placed all the remaining bombs
+ */
+function showAllBombs() {
+    const totalCells = document.querySelectorAll('.cell');
+    for (let i = 1; i <= totalCells.length; i++ ) {
+        if (bombsList.includes(i)) {
+            const cellToShow = totalCells[i - 1];
+            cellToShow.innerHTML = "<i class='fa-solid fa-bomb'></i>";
+        }
+    }
 }
 
 
