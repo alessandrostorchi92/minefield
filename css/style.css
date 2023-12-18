@@ -12,12 +12,14 @@ body {
 }
 
 .title-game {
+    font-family: 'Press Start 2P', cursive;
     text-align: center;
     padding: 2rem;
     text-transform: uppercase;
 }
 
 select {
+    font-family: 'Darker Grotesque', sans-serif;
     padding: 0.5rem;
     font-size: 16px;
     border: 1px solid black;
@@ -34,6 +36,7 @@ select {
 
 .start-game-btn {
     cursor: pointer;
+    font-family: 'Darker Grotesque', sans-serif;
     font-size: 1.5rem;
     width: 200px;
     font-weight: bold;
@@ -86,11 +89,24 @@ i {
 
 .counter-score {
     width: 200px;
+    font-family: 'Darker Grotesque', sans-serif;
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
     background-color:#F1C40F;
     border: 2px solid black;
 }
+
+#difficultySelect {
+    font-size: 1rem;
+    border: 2px solid black;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 4px;
+    background-color: #F1C40F;
+    color: black;
+}
+
+
 
 
