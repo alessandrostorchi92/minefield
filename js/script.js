@@ -28,7 +28,22 @@ const gridContainer = document.querySelector('.minefield-container');
  * @type {HTMLDivElement}
  */
 // @ts-ignore
-const endGameScreen = document.querySelector('.end-game-screen');
+const scoreCounter = document.querySelector('.counter-score');
+
+/**
+ * @type {number}
+ */
+let score = 0;
+
+/**
+ * @type {number}
+ */
+const totalBombs = 20;
+
+/**
+ * @type {number[]}
+ */
+const bombsList = [];
 
 /* ----------
 
@@ -61,6 +76,7 @@ function onBtnClick() {
 
 function createGrid(cellsNumber) {
     const grid = [];
+    const maxScore = cellsNumber - totalBombs;
     let isCellEven = false;
     let isRowEven = false;
     const arrayBombs = createRandomBombs(parseInt(gameLevelSelect.value));
@@ -77,17 +93,23 @@ function createGrid(cellsNumber) {
 
         cell.addEventListener("click", function() {
             console.log('cell clicked', i)
+
+            if(cell.classList.contains('bg-cell-empty')) {
+                return
+            }
+
             if (isBomb === true){
                 this.innerHTML = "<i class='fa-solid fa-bomb'></i>"
                 cell.classList.add('bg-cell-bomb');
-                setTimeout(function() {
-                    alert("You stepped on a bomb! Game Over.");
-                    location.reload();
-                }, 1000);
-                
-                
+                lostGame()
+        
             } else {
                 cell.classList.add('bg-cell-empty');
+                updateScore();
+            }
+
+            if (score === maxScore) {
+                wonGame();
             }
 
         });
@@ -135,7 +157,6 @@ function printGrid(container, cellsList) {
  */
 
 function createRandomBombs(cellsBomb) {
-    const totalBombs = 20;
     const bombsList = [];
 
     while (bombsList.length < totalBombs) {
@@ -147,6 +168,40 @@ function createRandomBombs(cellsBomb) {
     }
     return bombsList;
 
+}
+
+// TODO: Setting what happens if the player loses the minefield game
+
+/**
+ * This function shows up the game over message 
+ */
+function lostGame() {
+    setTimeout(function() {
+        alert("You stepped on a bomb! Game Over.");
+        location.reload();
+    }, 1000);
+}
+
+// TODO: Update the score of the minefield game
+
+/**
+ * This function updates the game score
+ */
+function updateScore() {
+    score++;
+    scoreCounter.innerText = score.toString().padStart(3,0);
+}
+
+// TODO: Setting what happens if the player wins the minefield game
+
+/**
+ * This function shows up the message you won the game
+ */
+function wonGame() {
+    setTimeout(function() {
+        alert("You won. Congratulations");
+        location.reload();
+    }, 1000);
 }
 
 

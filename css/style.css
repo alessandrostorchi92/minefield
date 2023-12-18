@@ -25,10 +25,10 @@ select {
     display: inline-block;
 }
 
-.play-btn-container, .select-container {
+.play-btn-container, .select-container, .score-container {
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     padding: 2rem;
 }
 
@@ -71,15 +71,26 @@ select {
 
 .bg-cell-bomb {
     background-color: #F1C40F;
+    cursor: not-allowed;
 }
 
 .bg-cell-empty {
     background-color: #292F36;
+    cursor: not-allowed;
 }
 
 i {
     font-size: 2rem;
     color: black;
+}
+
+.counter-score {
+    width: 200px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    background-color:#F1C40F;
+    border: 2px solid black;
 }
 
 
