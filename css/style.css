@@ -102,10 +102,18 @@ i {
     border: 2px solid black;
     text-align: center;
     text-transform: uppercase;
-    border-radius: 4px;
     background-color: #F1C40F;
     color: black;
 }
+
+select option {
+    background-color: #F1C40F;
+    border:2px solid black;
+}
+
+
+    
+
 
 
 
